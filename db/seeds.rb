@@ -5,3 +5,16 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+Category.create(category:"TV comedies")
+Category.create(category:"comedies")
+Category.create(category:"drama")
+Video.create(title: "foo1", video_description: "bar", small_cover_url: "/tmp/futurama.jpg", category_id: "2", large_cover_url:"tmp/monk_large.jpg")
+Video.create(title: "foo2", video_description: "bar", small_cover_url: "/tmp/futurama.jpg", category_id: "2", large_cover_url:"tmp/monk_large.jpg")
+Video.create(title: "foo3", video_description: "bar", small_cover_url: "/tmp/futurama.jpg", category_id: "2", large_cover_url:"tmp/monk_large.jpg")
+Video.create(title: "foo4", video_description: "bar", small_cover_url: "/tmp/futurama.jpg", category_id: "2", large_cover_url:"tmp/monk_large.jpg")
+Video.create(title: "foo5", video_description: "bar", small_cover_url: "/tmp/futurama.jpg", category_id: "2", large_cover_url:"tmp/monk_large.jpg")
+Video.create(title: "foo6", video_description: "bar", small_cover_url: "/tmp/futurama.jpg", category_id: "2", large_cover_url:"tmp/monk_large.jpg")
+Video.create(title: "foo7", video_description: "bar", small_cover_url: "/tmp/futurama.jpg", category_id: "2", large_cover_url:"tmp/monk_large.jpg")
+Video.create(title: "foo8", video_description: "bar", small_cover_url: "/tmp/futurama.jpg", category_id: "3", large_cover_url:"tmp/monk_large.jpg")
+Video.create(title: "foo9", video_description: "bar", small_cover_url: "/tmp/futurama.jpg", category_id: "3", large_cover_url:"tmp/monk_large.jpg")
