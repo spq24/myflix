@@ -1,6 +1,7 @@
 class Video < ActiveRecord::Base
 	
 	belongs_to :category
+ 	has_many :reviews, order: "created_at DESC"
 	validates :title, presence: :true
 	validates :video_description, presence: :true
 
@@ -8,6 +9,4 @@ class Video < ActiveRecord::Base
 		return [] if search_term.blank?
 		where("title LIKE ?",  "%#{search_term}%" ).order("created_at DESC")
 	end
-
-
 end

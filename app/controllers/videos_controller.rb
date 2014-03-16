@@ -1,15 +1,15 @@
 class VideosController < ApplicationController
-  before_filter :require_user
+ before_filter :require_user 
+
 
   def index
-    @category_videos = {}
-    Category.all.each do |category|
-      @category_videos.merge!(category => category.recent_videos)
-    end
+    @videos = Video.all
+    @category = Category.all
   end
 
   def show
     @video = Video.find(params[:id])
+    @reviews = @video.reviews
   end
 
   def search

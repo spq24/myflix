@@ -6,6 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+User.create(full_name: "Steve Q", password: "password", email: "foobar@foobar.com")
 Category.create(category:"TV comedies")
 Category.create(category:"comedies")
 Category.create(category:"drama")
@@ -17,4 +18,6 @@ Video.create(title: "foo5", video_description: "bar", small_cover_url: "/tmp/fut
 Video.create(title: "foo6", video_description: "bar", small_cover_url: "/tmp/futurama.jpg", category_id: "2", large_cover_url:"tmp/monk_large.jpg")
 Video.create(title: "foo7", video_description: "bar", small_cover_url: "/tmp/futurama.jpg", category_id: "2", large_cover_url:"tmp/monk_large.jpg")
 Video.create(title: "foo8", video_description: "bar", small_cover_url: "/tmp/futurama.jpg", category_id: "3", large_cover_url:"tmp/monk_large.jpg")
-Video.create(title: "foo9", video_description: "bar", small_cover_url: "/tmp/futurama.jpg", category_id: "3", large_cover_url:"tmp/monk_large.jpg")
+monk = Video.create(title: "foo9", video_description: "bar", small_cover_url: "/tmp/futurama.jpg", category_id: "3", large_cover_url:"tmp/monk_large.jpg")
+Review.create(user_id: 1, video_id: 2, rating: 3, content: "this is a really good show!")
+Review.create(user_id: 1, video_id: 3, rating: 1, content: "this is a really bad show!")
