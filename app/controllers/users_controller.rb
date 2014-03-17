@@ -9,13 +9,10 @@ class UsersController < ApplicationController
     @user = User.create(user_params)
     
     if @user.save
-      redirect_to sign_in_path
-
+        redirect_to sign_in_path
     else
-      render :new
+        render :new
     end
-
-
   end
 
   private
