@@ -3,7 +3,7 @@ ruby '1.9.3'
 
 gem 'bootstrap-sass'
 gem 'coffee-rails'
-gem 'rails'
+gem 'rails', '4.0.0'
 gem 'haml-rails'
 gem 'sass-rails'
 gem 'uglifier'
@@ -38,4 +38,3 @@ group :production do
   gem 'pg'
   gem 'rails_12factor'
 end
-
