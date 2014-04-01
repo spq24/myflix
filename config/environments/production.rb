@@ -18,7 +18,7 @@ Myflix::Application.configure do
 
   config.active_support.deprecation = :notify
 
-  config.action_mailer.smtp_settings = {
+  config.user_mailer.smtp_settings = {
     :port                 => 587,
     :address              => "smtp.mandrillapp.com",
     :user_name            => ENV['MANDRILL_USERNAME'],
