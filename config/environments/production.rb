@@ -17,4 +17,13 @@ Myflix::Application.configure do
   config.i18n.fallbacks = true
 
   config.active_support.deprecation = :notify
+
+  config.action_mailer.smtp_settings = {
+    :port                 => 587,
+    :address              => "smtp.mandrillapp.com",
+    :user_name            => ENV['MANDRILL_USERNAME'],
+    :password             => ENV['MANDRILL_APIKEY'], # SMTP password is any valid API key
+    :domain               => 'heroku.com', # your domain to identify your server when connecting
+    :authentication       => :plain # Mandrill supports 'plain' or 'login'
+  }
 end
