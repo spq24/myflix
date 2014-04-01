@@ -2,12 +2,12 @@ Myflix::Application.configure do
 
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    :port                 => '587',
     :address              => 'smtp.mandrillapp.com',
+    :port                 => 587,
     :user_name            => ENV['MANDRILL_USERNAME'],
     :password             => ENV['MANDRILL_APIKEY'], # SMTP password is any valid API key
     :domain               => 'heroku.com', # your domain to identify your server when connecting
-    :authentication       => :plain # Mandrill supports 'plain' or 'login'
+    :authentication       => 'plain' # Mandrill supports 'plain' or 'login'
   }
 
   config.cache_classes = true
