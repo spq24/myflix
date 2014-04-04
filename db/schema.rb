@@ -11,13 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140402062613) do
+ActiveRecord::Schema.define(version: 20140404055051) do
 
   create_table "categories", force: true do |t|
     t.string   "category"
     t.integer  "video_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "invitations", force: true do |t|
+    t.string   "inviter_id"
+    t.string   "recipient_name"
+    t.string   "recipient_email"
+    t.text     "message"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "token"
   end
 
   create_table "queue_items", force: true do |t|
