@@ -3,13 +3,14 @@ Myflix::Application.configure do
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.default_url_options = { host: 'http://cryptic-forest-8895.herokuapp.com' }
   config.action_mailer.smtp_settings = {
-    :address              => 'smtp.mandrillapp.com',
-    :port                 => 587,
-    :user_name            => ENV['MANDRILL_USERNAME'],
-    :password             => ENV['MANDRILL_APIKEY'], # SMTP password is any valid API key
-    :domain               => 'heroku.com', # your domain to identify your server when connecting
-    :authentication       => 'plain' # Mandrill supports 'plain' or 'login'
+    :port         => ENV['MAILGUN_SMTP_PORT'],
+  :address        => ENV['MAILGUN_SMTP_SERVER'],
+  :user_name      => ENV['MAILGUN_SMTP_LOGIN'],
+  :password       => ENV['MAILGUN_SMTP_PASSWORD'],
+  :domain         => 'cryptic-forest-8895.herokuapp.com',
+  :authentication       => 'plain' # Mandrill supports 'plain' or 'login'
   }
+  ActionMailer::Base.delivery_method = :smtp
 
   config.cache_classes = true
   config.eager_load = true
