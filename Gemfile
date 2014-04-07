@@ -15,6 +15,7 @@
     gem 'sidekiq'
     gem 'sinatra', '>= 1.3.0', :require => nil
     gem 'paratrooper'
+    gem "sentry-raven" #, :github => "getsentry/raven-ruby"
 
 
 
@@ -43,5 +44,5 @@
     group :production do
       gem 'pg'
       gem 'rails_12factor'
-      gem 'unicorn'
+ #     gem 'unicorn'
     end
