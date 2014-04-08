@@ -1,9 +1,13 @@
 class Video < ActiveRecord::Base
 	
 	belongs_to :category
- 	has_many :reviews, order: "created_at DESC"
-	validates :title, presence: :true
-	validates :video_description, presence: :true
+ 	has_many   :reviews, order: "created_at DESC"
+	validates  :title, presence: :true
+	validates  :video_description, presence: :true
+	
+	mount_uploader :small_cover, SmallCoverUploader
+	mount_uploader :large_cover, LargeCoverUploader
+	
 
 	def self.search_by_title(search_term)
 		return [] if search_term.blank?

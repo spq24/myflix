@@ -17,6 +17,9 @@
     gem 'paratrooper'
     gem 'sentry-raven' #, :github => "getsentry/raven-ruby"
     gem 'newrelic_rpm'
+    gem 'carrierwave'
+    gem 'mini_magick'
+    gem 'fog'
 
 
 
