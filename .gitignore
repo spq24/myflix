@@ -14,4 +14,7 @@
 /log/*.log
 /tmp
 
+# Ignore s3 intitializer
+/config/initializers/s3_constants.rb
+
 echo .env >> .gitignore
