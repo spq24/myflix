@@ -8,7 +8,7 @@ Myflix::Application.configure do
   :user_name      => ENV['MAILGUN_SMTP_LOGIN'],
   :password       => ENV['MAILGUN_SMTP_PASSWORD'],
   :domain         => 'http://sleepy-ocean-5198.herokuapp.com/',
-  :authentication       => 'plain' # Mandrill supports 'plain' or 'login'
+  :authentication       => 'plain'
   }
   ActionMailer::Base.delivery_method = :smtp
 
