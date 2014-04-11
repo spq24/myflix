@@ -1,11 +1,12 @@
 CarrierWave.configure do |config|
 	if Rails.env.production? || Rails.env.development?
 	    config.fog_credentials = {
-	      :provider               => 'AWS',                        # required
-	      :aws_access_key_id      => 'AKIAI7VMQRM4JCORH35A',                        # required
-	      :aws_secret_access_key  => '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',                        # required              # optional, defaults to 'us-east-1'
+	      :provider               => 'AWS',
+	      :aws_access_key_id      => ENV['S3_KEY'],
+	      :aws_secret_access_key  => ENV['S3_SECRET'],
+	      :region                 => 'us-east-1'                        # required              # optional, defaults to 'us-east-1'
 	    }
-	    config.fog_directory   = 'myflixq' # required
+	    config.fog_directory   = ENV['S3_BUCKET_NAME'] # required
 	    config.storage = :fog
 	    config.cache_dir = 'carrierwave'
 	    config.fog_public = false
