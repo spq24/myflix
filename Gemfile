@@ -19,9 +19,9 @@
     gem 'newrelic_rpm'
     gem 'carrierwave'
     gem 'mini_magick'
-  #  gem 'fog'
+    gem 'fog'
     gem 'aws-sdk'
-    gem 'carrierwave-aws'
+    gem 'figaro'
 
 
 
