@@ -6,7 +6,7 @@ CarrierWave.configure do |config|
 	      :aws_secret_access_key  => ENV['aws_secret_access_key'],
 	      :region                 => 'us-east-1'                        # required              # optional, defaults to 'us-east-1'
 	    }
-	    config.fog_directory   = ENV['S3_BUCKET_NAME'] # required
+	    config.fog_directory   = 'myflixq' # required
 	    config.storage = :fog
 	    config.fog_public = false
 	    config.cache_dir = "#{Rails.root}/tmp/uploads"
