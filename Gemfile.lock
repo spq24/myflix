@@ -276,7 +276,7 @@ DEPENDENCIES
   fabrication
   faker
   figaro
-  fog
+  fog (~> 1.21.0)
   haml-rails
   jquery-rails
   launchy

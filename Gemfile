@@ -19,7 +19,7 @@
     gem 'newrelic_rpm'
     gem 'carrierwave'
     gem 'mini_magick'
-    gem 'fog', '~> 1.0.0'
+    gem 'fog', '~> 1.21.0'
     gem 'aws-sdk'
     gem 'figaro'
 
