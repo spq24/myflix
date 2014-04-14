@@ -16,4 +16,5 @@ class VideosController < ApplicationController
     @videos = Video.search_by_title(params[:q])
   end
 
+
 end
