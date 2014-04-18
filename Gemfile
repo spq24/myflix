@@ -22,6 +22,7 @@
     gem 'fog', '~> 1.21.0'
     gem 'aws-sdk'
     gem 'figaro'
+    gem 'stripe'
 
 
 
@@ -45,6 +46,10 @@
       gem 'capybara'
       gem 'launchy'
       gem 'capybara-email'
+      gem 'vcr'
+      gem 'webmock'
+      gem 'selenium-webdriver'
+      gem 'database_cleaner'
     end
 
     group :production do
