@@ -23,6 +23,7 @@
     gem 'aws-sdk'
     gem 'figaro'
     gem 'stripe'
+    gem 'draper'
 
 
 

@@ -1,8 +1,15 @@
-%section.site_title
+%div.wrapper
+%section.site_title 
   %h1
     Unlimited Movies for Only 9.99 a Month.
     = link_to "Sign Up Now!", register_path
-  %p.sign_up
-  %p.sign_in
-    Have an account? Please
-    = link_to "Sign In", sign_in_path
+%p.sign_in
+  Have an account? Please
+  = link_to "Sign In", sign_in_path
+
+:javascript
+  $(function() {
+    var BV = new $.BigVideo();
+    BV.init();
+    BV.show("#{request.protocol + request.host_with_port + '/uploads/school-students-library.mp4'}",{ambient:true});
+  });

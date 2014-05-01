@@ -7,7 +7,8 @@
         %header
           %h3=@video.title
           %h4=@video.category.category
-          %span Rating: 4.5/5.0
+          %span Rating: 
+          = @video.rating
         %p=@video.video_description
         .actions  
           = link_to "Watch Now", @video.video_url, :class => "btn btn-primary"
