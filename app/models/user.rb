@@ -34,4 +34,8 @@ class User < ActiveRecord::Base
 	def can_follow?(another_user)
 		true unless another_user == self || self.follows?(another_user)
 	end
+
+	def deactivate!
+		update_column(:active, :false)
+	end
 end

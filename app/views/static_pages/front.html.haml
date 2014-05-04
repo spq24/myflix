@@ -1,15 +1,10 @@
-%div.wrapper
-%section.site_title 
-  %h1
-    Unlimited Movies for Only 9.99 a Month.
-    = link_to "Sign Up Now!", register_path
-%p.sign_in
-  Have an account? Please
-  = link_to "Sign In", sign_in_path
+.wrapper
+  %section.site_title
+    .btn.btn-lg.btn-success= link_to "Start Watching Now!", register_path, class: "sign_up"
 
 :javascript
   $(function() {
-    var BV = new $.BigVideo();
+    var BV = new $.BigVideo({container:$('.wrapper')});
     BV.init();
     BV.show("#{request.protocol + request.host_with_port + '/uploads/school-students-library.mp4'}",{ambient:true});
   });
