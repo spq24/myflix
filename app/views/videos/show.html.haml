@@ -2,7 +2,11 @@
   .container
     .row
       .video_large_cover.col-sm-7.col-sm-offset-1
-        =image_tag @video.large_cover_url
+        %video#a240e92d.sublime{"data-uid" => "a240e92d", height: "360", poster: "#{image_tag @video.large_cover_url}", preload: "none", title: "Midnight Sun", width: "640"}
+          %source{src: "#{@video.video_url}"}
+          %source{"data-quality" => "hd", src: "#{@video.video_url}"}
+          %source{src: "#{@video.video_url}"}
+          %source{"data-quality" => "hd", src: "#{@video.video_url}"}
       .video_info.col-sm-3
         %header
           %h3=@video.title
@@ -11,7 +15,6 @@
           = @video.rating
         %p=@video.video_description
         .actions  
-          = link_to "Watch Now", @video.video_url, :class => "btn btn-primary"
           = link_to "+ My Queue", queue_items_path(video_id: @video.id), method: :post, :class =>"btn btn-default" unless current_user.queued_video?(@video)
 %section.reviews.container
   .row
@@ -25,9 +28,11 @@
               .col-sm-3
           .form-group
             %label Write Review
-            = f.text_area :content, rows: 6, class: "span6"
+            .row
+              .col-sm-8
+                = f.text_area :content, rows: 6, class: "form-control"
         %fieldset.form-group.actions.clearfix
-          %input(type="submit" value="Submit" class="btn")
+          %input(type="submit" value="Submit" class="btn btn-primary")
           = link_to "Cancel", @video
       %header
         %h3 User Reviews (#{@reviews.count})
