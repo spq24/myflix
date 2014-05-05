@@ -223,7 +223,7 @@
 				player.ready(function(){
 					player.volume(0);
 				});
-				doLoop = true;
+				doLoop = false;
 			} else {
 				$('#big-video-control-container').css('display','block');
 				player.ready(function(){
@@ -331,7 +331,7 @@
 		BigVideo.show = function(source,options) {
 			if (options === undefined) options = {};
 			isAmbient = options.ambient === true;
-			if (isAmbient || options.doLoop) settings.doLoop = true;
+			if (isAmbient || options.doLoop) settings.doLoop = false;
 			if (typeof(source) === 'string') {
 				var ext = source.substring(source.lastIndexOf('.')+1);
 				if (ext === 'jpg' || ext === 'gif' || ext === 'png') {

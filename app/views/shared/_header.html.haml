@@ -1,23 +1,16 @@
 %section#top-header.row
   %h1.col-md-2
     = link_to 'My Flix', root_path 
-    - if logged_in?  
-      %ul.col-md-3.clearfix
-        %li= link_to "Videos", home_path
-        %li= link_to "My Queue", my_queue_path
-        %li= link_to "People", people_path
-    
-    
-      .col-md-5.navbar-form
-        .form-group
-          = form_tag search_videos_path, method: :get do
-            .control-group
-              = text_field_tag 'search_term', nil, placeholder: 'Search'
-              = submit_tag 'Search now', class: 'btn'  
-
-
-  #user_links.pull-right
-    = link_to "Sign In", sign_in_path 
+  - if logged_in?  
+    %ul.col-md-3.clearfix
+      %li= link_to "Videos", home_path
+      %li= link_to "My Queue", my_queue_path
+      %li= link_to "People", people_path
+    = form_tag search_videos_path, class: "col-md-6 navbar-form",  method: :get do
+      .form-group
+        = text_field_tag 'search_term', nil, placeholder: 'Search', class: 'form-control'
+        = submit_tag 'Search now', class: 'btn btn-success'  
+  #user_links.pull-right 
     - if logged_in? 
       %ul
         %li.dropdown
@@ -30,3 +23,5 @@
               %a(href="#") Account
               %a(href="#") Plan and Billing
               =link_to 'Sign Out', sign_out_path
+    - else
+      = link_to "Sign In", sign_in_path
