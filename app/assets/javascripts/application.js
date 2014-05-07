@@ -14,4 +14,5 @@
 //= require jquery_ujs
 //= require video
 //= require bigvideo
+//= require jquery.raty
 //= require bootstrap

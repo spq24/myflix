@@ -8,6 +8,7 @@ class Video < ActiveRecord::Base
 	mount_uploader :small_cover, SmallCoverUploader
 	mount_uploader :large_cover, LargeCoverUploader
 	
+	letsrate_rateable "movie"
 
 	def self.search_by_title(search_term)
 		return [] if search_term.blank?

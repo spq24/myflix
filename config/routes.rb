@@ -1,6 +1,7 @@
 Myflix::Application.routes.draw do
 
 
+  post '/rate' => 'rater#create', :as => 'rate'
   root to: "static_pages#front"
 	require 'sidekiq/web'
 	mount Sidekiq::Web => '/sidekiq'

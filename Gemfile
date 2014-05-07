@@ -25,6 +25,7 @@
     gem 'stripe'
     gem 'stripe_event'
     gem 'draper'
+    gem 'letsrate'
 
 
 

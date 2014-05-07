@@ -11,8 +11,8 @@
         %header
           %h3=@video.title
           %h4=@video.category.category
-          %span Rating: 
-          = @video.rating
+          %span Average Rating:
+          #star
         %p=@video.video_description
         .actions  
           = link_to "+ My Queue", queue_items_path(video_id: @video.id), method: :post, :class =>"btn btn-default" unless current_user.queued_video?(@video)
@@ -47,3 +47,15 @@
                   = link_to review.user.full_name, review.user
               .col-sm-8
                 %p= review.content
+:javascript
+  $('#star').raty({
+   readOnly: true,
+   score: #{@video.average_rating},
+   path: '/assets/'
+  });
+
+:javascript
+  $('#user_star').raty({
+   score: #{@video.rating},
+   path: '/assets/'
+  });
