@@ -1,7 +1,7 @@
-class VideoUploaderUploader < CarrierWave::Uploader::Base
+class VideoUploader < CarrierWave::Uploader::Base
 
   def store_dir
-    "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
+    "uploads/movies/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
   end
 
 end
