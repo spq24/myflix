@@ -13,7 +13,7 @@ namespace :deploy do
     deployment = Paratrooper::Deploy.new("thawing-bastion-3175") do |deploy|
       deploy.tag              = 'production'
       deploy.match_tag        = 'staging'
-    #  deploy.maintenance_mode = !ENV['NO_MAINTENANCE']
+      deploy.maintenance_mode = !ENV['NO_MAINTENANCE']
     end
 
     deployment.deploy
