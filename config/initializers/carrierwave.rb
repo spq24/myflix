@@ -8,7 +8,6 @@ CarrierWave.configure do |config|
 	    config.fog_directory   = 'myflixq' # required
 	    config.storage = :fog
 	    config.fog_public = false
-	    config.s3_access_policy = :public_read
 	    config.cache_dir = "#{Rails.root}/tmp/uploads/"
 	else
 		config.storage = :file
