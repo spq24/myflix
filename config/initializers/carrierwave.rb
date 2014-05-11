@@ -1,5 +1,5 @@
 CarrierWave.configure do |config|
-	if Rails.env.production? || Rails.env.development?
+	if Rails.env.production? || Rails.env.development? || Rails.env.staging?
 	    config.fog_credentials = {
 	      :provider               => 'AWS',
 	      :aws_access_key_id      => ENV['aws_access_key_id'],
@@ -8,6 +8,7 @@ CarrierWave.configure do |config|
 	    config.fog_directory   = 'myflixq' # required
 	    config.storage = :fog
 	    config.fog_public = false
+	    config.s3_access_policy = :public_read
 	    config.cache_dir = "#{Rails.root}/tmp/uploads/"
 	else
 		config.storage = :file
