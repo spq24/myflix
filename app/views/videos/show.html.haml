@@ -4,9 +4,9 @@
       .video_large_cover.col-sm-7.col-sm-offset-1
         %video#a240e92d.sublime{"data-uid" => "a240e92d", height: "360", poster: "#{image_tag @video.large_cover_url}", preload: "none", width: "640"}
           %source{src: "#{@video.video_url}"}
-          %source{"data-quality" => "hd", src: "#{@video.video_url}"}
-          %source{src: "#{@video.video_url}"}
-          %source{"data-quality" => "hd", src: "#{@video.video_url}"}
+          %source{"data-quality" => "hd", src: "https://s3.amazonaws.com/myflixq/#{@video.video_url}"}
+          %source{src: "https://s3.amazonaws.com/myflixq/#{@video.video_url}"}
+          %source{"data-quality" => "hd", src: "https://s3.amazonaws.com/myflixq/#{@video.video_url}"}
       .video_info.col-sm-3
         %header
           %h3=@video.title
