@@ -16,5 +16,10 @@ class VideosController < ApplicationController
     @results = Video.search_by_title(params[:search_term])
   end
 
+  def destroy
+    Video.find(params[:id]).destroy
+    flash[:success] = "Video Deleted."
+    redirect_to videos_path
+  end
 
 end
