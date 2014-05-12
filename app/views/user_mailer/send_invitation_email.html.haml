@@ -125,12 +125,12 @@
                                 %tr
                                   %td.w325{height: "8", width: "350"}
                             .header-content
-                              %webversion Web Version
+                              %webversion
                               %span.hide
-                                \  | 
+                                \   
                                 = succeed "\u{a0}\u{a0}|\u{a0}" do
-                                  %preferences{lang: "en"} Update preferences
-                                %unsubscribe Unsubscribe
+                                  %preferences{lang: "en"}
+                                %unsubscribe
                             %table.w325{border: "0", cellpadding: "0", cellspacing: "0", width: "350"}
                               %tbody
                                 %tr
@@ -145,28 +145,19 @@
                               %tbody
                                 %tr
                                   %td{valign: "middle"}
-                                    %fblike
-                                      %img{alt: "Facebook icon", border: "0", height: "14", src: "https://img.createsend1.com/img/templatebuilder/like-glyph.png", width: "8"}/
                                   %td{width: "3"}
                                   %td{valign: "middle"}
                                     .header-content
-                                      %fblike Like
                                   %td.w10{width: "10"}
                                   %td{valign: "middle"}
-                                    %tweet
-                                      %img{alt: "Twitter icon", border: "0", height: "13", src: "https://img.createsend1.com/img/templatebuilder/tweet-glyph.png", width: "17"}/
                                   %td{width: "3"}
                                   %td{valign: "middle"}
                                     .header-content
-                                      %tweet Tweet
                                   %td.w10{width: "10"}
                                   %td{valign: "middle"}
-                                    %forwardtoafriend{lang: "en"}
-                                      %img{alt: "Forward icon", border: "0", height: "14", src: "https://img.createsend1.com/img/templatebuilder/forward-glyph.png", width: "19"}/
                                   %td{width: "3"}
                                   %td{valign: "middle"}
                                     .header-content
-                                      %forwardtoafriend{lang: "en"} Forward
                             %table.w255{border: "0", cellpadding: "0", cellspacing: "0", width: "255"}
                               %tbody
                                 %tr
@@ -186,6 +177,7 @@
                             #headline{align: "center"}
                               %p
                                 %strong
+                                 %a
                                   %singleline{label: "Title"} You've Been Invited to Myflix
                           %td.w30{width: "30"}
                 %tr

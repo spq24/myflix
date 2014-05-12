@@ -33,6 +33,21 @@ class UsersController < ApplicationController
     end
   end
 
+  def index
+    @users = User.all
+  end
+
+  def destroy
+    User.find(params[:id]).destroy
+    flash[:success] = "User Deleted."
+    redirect_to videos_path
+  end
+
+  def make_admin
+    current_user.update_column(:admin, true)
+    redirect_to current_user
+  end
+
   private
 
   def user_params
