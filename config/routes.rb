@@ -1,7 +1,5 @@
 Myflix::Application.routes.draw do
 
-
-
   root to: "static_pages#front"
 	require 'sidekiq/web'
 	mount Sidekiq::Web => '/sidekiq'
@@ -24,7 +22,7 @@ Myflix::Application.routes.draw do
 	  	post 'update_queue', to: 'queue_items#update_queue'
   		resources :users
   		get 'people', to: 'relationships#index'
-  		get 'make_admin', to: "users#make_admin"
+  		get '/users/make_admin/:id/', to: "users#make_admin"
   		resources :relationships, only: [:create, :destroy]
   		resources :sessions, only: [:create]
   		resources :forgot_passwords, only: [:create]

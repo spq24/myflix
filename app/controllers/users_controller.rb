@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_filter :require_user, only: [:show]
+  before_filter :require_admin, only: [:index]
 
   def new
     @user = User.new
@@ -44,8 +45,9 @@ class UsersController < ApplicationController
   end
 
   def make_admin
-    current_user.update_column(:admin, true)
-    redirect_to current_user
+    @user = User.find(params[:id])
+    @user.update_column(:admin, true)
+    redirect_to @user
   end
 
   private

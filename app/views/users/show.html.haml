@@ -9,7 +9,8 @@
             =link_to "Delete User", @user, data: { :confirm => 'Are you sure you want to delete this user?' }, method: :delete, :class => "btn btn-danger"
             %br
             %br
-            =link_to "Make Admin", make_admin_path, :class => "btn btn-success" unless @user.admin?
+            - unless @user.admin?
+              %a(href="make_admin/#{@user.id}" class="btn btn-success") Make Admin
             %br
             %br
           = link_to "Follow", relationships_path(leader_id: @user.id), class: "btn btn-default", method: :post if current_user.can_follow?(@user)
