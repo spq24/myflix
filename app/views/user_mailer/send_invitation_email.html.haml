@@ -128,7 +128,7 @@
                               %webversion
                               %span.hide
                                 \   
-                                = succeed "\u{a0}\u{a0}|\u{a0}" do
+                                = succeed "\u{a0}\u{a0}\u{a0}" do
                                   %preferences{lang: "en"}
                                 %unsubscribe
                             %table.w325{border: "0", cellpadding: "0", cellspacing: "0", width: "350"}
@@ -177,8 +177,8 @@
                             #headline{align: "center"}
                               %p
                                 %strong
-                                 %a
-                                  %singleline{label: "Title"} You've Been Invited to Myflix
+                                  %a
+                                    %singleline{label: "Title"} You've Been Invited to Myflix
                           %td.w30{width: "30"}
                 %tr
                   %td.w640{bgcolor: "#ffffff", height: "30", width: "640"}
@@ -229,9 +229,8 @@
                             %span.hide
                               %p#permission-reminder.footer-content-left{align: "left"}
                             %p.footer-content-left{align: "left"}
-                              %preferences{lang: "en"} Edit your subscription
-                              |
-                              %unsubscribe Unsubscribe
+                              %preferences{lang: "en"}
+                              %unsubscribe
                           %td.hide.w0{width: "60"}
                           %td.hide.w0{valign: "top", width: "160"}
                             %p#street-address.footer-content-right{align: "right"}
