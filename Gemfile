@@ -26,7 +26,7 @@
     gem 'stripe_event'
     gem 'draper'
     gem 'letsrate'
-    gem 'activeadmin', github: 'gregbell/active_admin'
+
 
 
 
