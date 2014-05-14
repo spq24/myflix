@@ -11,8 +11,9 @@ class UsersController < ApplicationController
     @result = UserSignup.new(@user).sign_up(params[:stripeToken], params[:invitation_token])
 
     if @result.successful?
-      flash[:success] = "Thank you for registering with MyFlix. Please sign in now."
-      redirect_to sign_in_path
+      flash[:success] = "Thank you for signing up with MyFlix."
+      session[:user_id] = @user.id
+      redirect_to home_path
     else
       flash[:danger] = @result.error_message
       render :new
