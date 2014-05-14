@@ -64,4 +64,13 @@ class UsersController < ApplicationController
         invitation.update_column(:token, nil)
      end
   end
+
+    private
+
+  def require_admin
+    if !current_user.admin?
+      flash[:danger] = "You are not authorized to do that."
+      redirect_to home_path
+    end
+  end
 end
