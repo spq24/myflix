@@ -1,0 +1,15 @@
+﻿
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+# On branch master
+# Your branch is ahead of 'origin/master' by 1 commit.
+#   (use "git push" to publish your local commits)
+#
+# Changes to be committed:
+#   (use "git reset HEAD <file>..." to unstage)
+#
+#	deleted:    app/assets/javascripts/active_admin.js.coffee
+#	deleted:    app/assets/stylesheets/active_admin.css.scss
+#	deleted:    db/migrate/20140513052643_create_active_admin_comments.rb
+#
+
