@@ -4,10 +4,12 @@
       .col-md-10.col-md-offset-1
         = bootstrap_form_for [:admin, @video], style: :horizontal, left: "col-sm-3" , right: "col-sm-6", html: {multipart: true} do |f|
           %ul.nav.nav-tabs
+            %li.active
+              = link_to "Add a New Video", new_admin_video_path
             %li
               = link_to "Recent Payments", admin_payments_path
-            %li.active
-              %a(href="") Add a New Video
+            %li
+              = link_to "Categories", admin_categories_path
           %br
           %fieldset
             .form-group

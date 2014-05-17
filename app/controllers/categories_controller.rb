@@ -8,6 +8,17 @@ class CategoriesController < ApplicationController
 
 	def show
 		@category = Category.find(params[:id])
-		@videos = @category.videos
 	end
+
+	def destroy
+	    Category.find(params[:id]).destroy
+	    flash[:success] = "Category Deleted."
+	    redirect_to admin_categories_path
+  	end
+
+  	private
+
+	def category_params
+    	params.require(:category).permit(:category)
+  	end
 end

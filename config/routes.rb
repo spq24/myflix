@@ -15,9 +15,10 @@ Myflix::Application.routes.draw do
 	  	namespace :admin do
 	  		resources :videos, only: [:new, :create]
 	  		resources :payments
+	  		resources :categories, only: [:new, :create, :index, :destroy, :edit, :update, :show]
 	  	end
 
-	  	resources :categories, only: [:show]
+	  	resources :categories
 	  	resources :queue_items, only: [:create, :destroy]
 	  	post 'update_queue', to: 'queue_items#update_queue'
   		resources :users

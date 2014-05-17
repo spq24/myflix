@@ -1,0 +1,21 @@
+%section.admin_payments
+  .container
+    .row
+      .col-sm-10.col-sm-offset-1
+        %section.payment_history
+          %ul.nav.nav-tabs
+            %li
+              = link_to "Add a New Video", new_admin_video_path
+            %li
+              = link_to "Recent Payments", admin_payments_path
+            %li.active
+              = link_to "Categories", admin_categories_path
+          %table.table
+            %thead
+              %tr
+                %th Category
+            %tbody
+              - @categories.each do |category|
+                %tr
+                  %td= link_to category.category, category
+                  %td= link_to "Delete Category", category, data: { :confirm => 'Are you sure you want to delete this video?' }, method: :delete, :class => "btn btn-danger"
