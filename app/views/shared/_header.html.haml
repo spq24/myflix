@@ -22,6 +22,7 @@
               -if current_user.admin?
                 = link_to "Add a Video", new_admin_video_path
                 = link_to "View Payments", admin_payments_path
+                = link_to "View or Edit Categories", admin_categories_path
                 = link_to "View All Users", users_path
               = link_to "Invite a Friend", new_invitation_path
               %a(href="#") Account

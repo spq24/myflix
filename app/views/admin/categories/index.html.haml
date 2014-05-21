@@ -18,4 +18,5 @@
               - @categories.each do |category|
                 %tr
                   %td= link_to category.category, category
+                  %td= link_to "Edit Category", edit_admin_category_path(category), :class => "btn btn-warning"
                   %td= link_to "Delete Category", category, data: { :confirm => 'Are you sure you want to delete this video?' }, method: :delete, :class => "btn btn-danger"
