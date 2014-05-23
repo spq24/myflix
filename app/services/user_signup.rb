@@ -15,8 +15,8 @@ class UserSignup
 
 	      if customer.successful?
 	      	@user.customer_token = customer.customer_token
-	      	handle_invitation(invitation_token)
 	        @user.save
+	        handle_invitation(invitation_token)
 	        UserMailer.send_welcome_email(@user).deliver
 	        @status = :success
 	        self
@@ -40,7 +40,7 @@ class UserSignup
 
   def handle_invitation(invitation_token)
       if invitation_token.present?
-        invitation = Invitation.where(token: params[:invitation_token]).first
+        invitation = Invitation.where(token: invitation_token).first
         @user.follow(invitation.inviter)
         invitation.inviter.follow(@user)
         invitation.update_column(:token, nil)
