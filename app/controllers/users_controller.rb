@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_filter :require_user, only: [:show]
   before_filter :require_admin, only: [:index]
+  before_filter :correct_user, only: [:edit, :update]
 
   def new
     @user = User.new
@@ -18,6 +19,41 @@ class UsersController < ApplicationController
       flash[:danger] = @result.error_message
       render :new
     end
+  end
+
+  def edit
+    @user = User.find(params[:id])
+  end
+
+  def update
+    @user = User.find(params[:id])
+    if @user.update_attributes(user_params)
+      flash[:success] = "You have successfully edited Your Account"
+      redirect_to edit_user_path
+    else
+      flash[:danger] = "Something Went Wrong! Your account wasn't edited properly"
+      render :edit
+    end 
+  end
+
+    def account
+      @user = User.find(params[:id])
+      stripe_customer = Stripe::Customer.retrieve("#{@user.customer_token}").to_json
+      parsed_sc = ActiveSupport::JSON.decode(stripe_customer)
+      @plan = parsed_sc["subscriptions"]["data"][0]["plan"]["name"]
+      next_bill_date = parsed_sc["subscriptions"]["data"][0]["current_period_end"]
+      @bill_date = Time.at(next_bill_date).strftime('%m/%d/%Y')
+      plan_cost = parsed_sc["subscriptions"]["data"][0]["plan"]["amount"].to_f / 100
+      @cost = ActionController::Base.helpers.number_to_currency(plan_cost)
+
+
+      stripe_invoices = Stripe::Invoice.all(customer: "#{@user.customer_token}", limit: 8).to_json
+      parsed_si = ActiveSupport::JSON.decode(stripe_invoices)
+      @invoices = parsed_si
+      @billed = ActionController::Base.helpers.number_to_currency(parsed_si["data"][0]["lines"]["data"][0]["amount"].to_f / 100)
+      @billed_date = Time.at(parsed_si["data"][0]["date"]).strftime('%m/%d/%Y')
+      @period_start = Time.at(parsed_si["data"][0]["lines"]["data"][0]["period"]["start"]).strftime('%m/%d/%Y')
+      @period_end = Time.at(parsed_si["data"][0]["lines"]["data"][0]["period"]["end"]).strftime('%m/%d/%Y')
   end
 
   def show
@@ -54,7 +90,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:email, :password, :full_name, :admin)
+    params.require(:user).permit(:email, :password, :password_confirmation, :full_name, :admin)
   end
 
   def handle_invitation
@@ -66,12 +102,15 @@ class UsersController < ApplicationController
      end
   end
 
-    private
-
   def require_admin
     if !current_user.admin?
       flash[:danger] = "You are not authorized to do that."
       redirect_to home_path
     end
+  end
+
+  def correct_user
+    @user = User.find(params[:id])
+    redirect_to home_path unless current_user == @user
   end
 end

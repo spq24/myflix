@@ -25,8 +25,8 @@
                 = link_to "View or Edit Categories", admin_categories_path
                 = link_to "View All Users", users_path
               = link_to "Invite a Friend", new_invitation_path
-              %a(href="#") Account
-              %a(href="#") Plan and Billing
+              = link_to "Edit Profile", edit_user_path(current_user)
+              = link_to "Account & Billing", "/users/#{@user.id}/account"
               =link_to 'Sign Out', sign_out_path
     - else
       = link_to "Sign In", sign_in_path

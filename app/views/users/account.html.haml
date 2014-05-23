@@ -1,0 +1,36 @@
+%section.billing.container
+  .row
+    .col-sm-10.col-sm-offset-1
+      .plan_and_payments
+        %section.plan
+          %header
+            %h1 Billing
+          %table.table
+            %thead
+              %tr
+                %th Plan Name
+                %th Next Billing Date
+                %th Price
+            %tbody
+              %tr
+                %td= @plan
+                %td= @bill_date
+                %td= @cost
+        %br
+        %section.payment_history
+          %header
+            %h3 Payment History
+          %table.table
+            %thead
+              %tr
+                %th Date
+                %th Billing Period
+                %th Total
+            %tbody
+              - @invoices.each do |invoice|
+                %tr
+                  %td= @billed_date
+                  %td #{@period_start} to #{@period_start}
+                  %td= @billed
+          .col-lg-offset-3
+            =link_to "Cancel Services", @user, data: { :confirm => 'Are you sure you want to cancel your Myflix Subscription?' }, method: :delete, :class => "btn btn-danger"
