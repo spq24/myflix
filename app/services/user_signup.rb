@@ -15,8 +15,8 @@ class UserSignup
 
 	      if customer.successful?
 	      	@user.customer_token = customer.customer_token
+	      	handle_invitation(invitation_token)
 	        @user.save
-	        handle_invitation(invitation_token)
 	        UserMailer.send_welcome_email(@user).deliver
 	        @status = :success
 	        self
