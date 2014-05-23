@@ -39,7 +39,7 @@ Myflix::Application.routes.draw do
 	  	get '/my_queue', 					to: "queue_items#index"
 	  	get '/forgot_password',				to: "forgot_passwords#new"
 	  	get 'forgot_password_confirmation', to: "forgot_passwords#confirm"
-	  	get 'expired_token', 				to: "pages#expired_token"
+	  	get '/expired_token', 				to: "static_pages#expired_token"
 	  	get '/users/:id/account', 			to: "users#account"
 
 	  	
